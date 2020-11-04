@@ -1,0 +1,115 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:smartform="sap.ui.comp.smartform"
+	xmlns:smartfield="sap.ui.comp.smartfield" xmlns:layout="sap.ui.layout" xmlns:smartmultiedit="sap.ui.comp.smartmultiedit"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog title="{i18n>xbut.changeAssignment}" class="sapUiPopupWithPadding"
+		stretchOnPhone="true" contentWidth="25rem" horizontalScrolling="false" afterClose="afterDialogClosed">
+		<content>
+			<!--<smartmultiedit:Container entitySet="C_ObjPgMaintOrder" id="orderManageChangeAssignmentMultiEditContainer">
+				<smartmultiedit:layout>
+					<smartform:SmartForm editable="true">
+						<smartform:groups>
+							<smartform:Group>
+								<smartform:GroupElement>
+									<smartform:elements>
+										<smartmultiedit:Field propertyName="MainWorkCenter"/>
+									</smartform:elements>
+								</smartform:GroupElement>
+								<smartform:GroupElement>
+									<smartform:elements>
+										<smartmultiedit:Field propertyName="MainWorkCenterPlant"/>
+									</smartform:elements>
+								</smartform:GroupElement>
+								<smartform:GroupElement>
+									<smartform:elements>
+										<smartmultiedit:Field propertyName="MaintenancePlannerGroup"/>
+									</smartform:elements>
+								</smartform:GroupElement>
+								<smartform:GroupElement>
+									<smartform:elements>
+										<smartmultiedit:Field propertyName="MaintOrdPersonResponsible"/>
+									</smartform:elements>
+								</smartform:GroupElement>
+							</smartform:Group>
+						</smartform:groups>
+					</smartform:SmartForm>
+				</smartmultiedit:layout>
+			</smartmultiedit:Container>-->
+			<smartform:SmartForm flexEnabled="false" editTogglable="false" editable="true" id="orderChangeAssignmentSmartForm">
+				<smartform:layout>
+					<smartform:Layout columnsL="1" columnsM="1" emptySpanL="1" emptySpanM="0" labelSpanL="0" labelSpanM="0"></smartform:Layout>
+				</smartform:layout>
+				<smartform:groups>
+					<smartform:Group>
+						<smartform:GroupElement objectBindings="{viewModel>/MainWorkCenter}">
+							<smartform:label>
+								<Label text="{/#C_ObjPgMaintOrder/MainWorkCenter/@sap:label}"/>
+							</smartform:label>
+							<ComboBox visible="{= ${viewModel>/isMassEdit} &amp;&amp; !${viewModel>isSingleMode} }"
+								id="orderChangeAssignmentWorkCenterMassEditComboBox" change="onMassEditComboBoxChanged" selectedKey="{viewModel>selectedKey}"
+								items="{viewModel>massEditValues}" customData:smartFieldId="orderChangeAssignmentWorkCenterField">
+								<items>
+									<core:Item key="{viewModel>key}" text="{viewModel>value}" customData:semantic="{viewModel>semantic}" />
+								</items>
+							</ComboBox>
+							<smartfield:SmartField visible="{= !${viewModel>/isMassEdit} || ${viewModel>isSingleMode} }"
+								id="orderChangeAssignmentWorkCenterField" value="{MainWorkCenter}"/>
+						</smartform:GroupElement>
+						<smartform:GroupElement objectBindings="{viewModel>/MainWorkCenterPlant}">
+							<smartform:label>
+								<Label text="{/#C_ObjPgMaintOrder/MainWorkCenterPlant/@sap:label}"/>
+							</smartform:label>
+							<ComboBox visible="{= ${viewModel>/isMassEdit} &amp;&amp; !${viewModel>isSingleMode} }"
+								id="orderChangeAssignmentWorkCenterPlantMassEditComboBox" change="onMassEditComboBoxChanged" selectedKey="{viewModel>selectedKey}"
+								items="{viewModel>massEditValues}" customData:smartFieldId="orderChangeAssignmentWorkCenterPlantField">
+								<items>
+									<core:Item key="{viewModel>key}" text="{viewModel>value}" customData:semantic="{viewModel>semantic}"/>
+								</items>
+							</ComboBox>
+							<smartfield:SmartField visible="{= !${viewModel>/isMassEdit} || ${viewModel>isSingleMode} }"
+								id="orderChangeAssignmentWorkCenterPlantField" value="{MainWorkCenterPlant}"/>
+						</smartform:GroupElement>
+						<smartform:GroupElement objectBindings="{viewModel>/MaintenancePlannerGroup}">
+							<smartform:label>
+								<Label text="{/#C_ObjPgMaintOrder/MaintenancePlannerGroup/@sap:label}"/>
+							</smartform:label>
+							<ComboBox visible="{= ${viewModel>/isMassEdit} &amp;&amp; !${viewModel>isSingleMode} }"
+								id="orderChangeAssignmentMaintenancePlannerGroupMassEditComboBox" change="onMassEditComboBoxChanged" selectedKey="{viewModel>selectedKey}"
+								items="{viewModel>massEditValues}" customData:smartFieldId="orderChangeAssignmentMaintenancePlannerGroupField">
+								<items>
+									<core:Item key="{viewModel>key}" text="{viewModel>value}" customData:semantic="{viewModel>semantic}"/>
+								</items>
+							</ComboBox>
+							<smartfield:SmartField visible="{= !${viewModel>/isMassEdit} || ${viewModel>isSingleMode} }"
+								id="orderChangeAssignmentMaintenancePlannerGroupField" value="{MaintenancePlannerGroup}"/>
+						</smartform:GroupElement>
+						<smartform:GroupElement objectBindings="{viewModel>/MaintOrdPersonResponsible}">
+							<smartform:label>
+								<Label text="{/#C_ObjPgMaintOrder/MaintOrdPersonResponsible/@sap:label}"/>
+							</smartform:label>
+							<ComboBox visible="{= ${viewModel>/isMassEdit} &amp;&amp; !${viewModel>isSingleMode} }"
+								id="orderChangeAssignmentPersonResponsibleMassEditComboBox" change="onMassEditComboBoxChanged" selectedKey="{viewModel>selectedKey}"
+								items="{viewModel>massEditValues}" customData:smartFieldId="orderChangeAssignmentPersonResponsibleField">
+								<items>
+									<core:Item key="{viewModel>key}" text="{viewModel>value}" customData:semantic="{viewModel>semantic}"/>
+								</items>
+							</ComboBox>
+							<smartfield:SmartField visible="{= !${viewModel>/isMassEdit} || ${viewModel>isSingleMode} }"
+								id="orderChangeAssignmentPersonResponsibleField" value="{MaintOrdPersonResponsible}"/>
+						</smartform:GroupElement>
+					</smartform:Group>
+				</smartform:groups>
+			</smartform:SmartForm>
+		</content>
+		<beginButton>
+			<Button text="{i18n>xbut.changeAssignment}" press="onOkPressed" type="Emphasized" />
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>xbut.cancel}" press="onCancelPressed"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

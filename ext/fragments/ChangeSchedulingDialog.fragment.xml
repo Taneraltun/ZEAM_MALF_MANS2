@@ -1,0 +1,93 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:smartform="sap.ui.comp.smartform"
+	xmlns:smartfield="sap.ui.comp.smartfield" xmlns:layout="sap.ui.layout" xmlns:smartmultiedit="sap.ui.comp.smartmultiedit"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog title="{i18n>xbut.changeScheduling}" class="sapUiPopupWithPadding" stretchOnPhone="true" contentWidth="25rem"
+		horizontalScrolling="false" afterClose="afterDialogClosed">
+		<content>
+			<smartform:SmartForm flexEnabled="false" editTogglable="false" editable="true" id="orderChangeSchedulingSmartForm"
+				customData:dateFormatSettings='\{"UTC":true\}'>
+				<smartform:layout>
+					<smartform:Layout columnsL="1" columnsM="1" emptySpanL="1" emptySpanM="0" labelSpanL="0" labelSpanM="0"></smartform:Layout>
+				</smartform:layout>
+				<smartform:groups>
+					<smartform:Group id="orderChangeSchedulingDefaultGroup">
+						<smartform:GroupElement objectBindings="{viewModel>/MaintPriority}" id="orderChangeSchedulingPriorityMassEditGroupElement">
+							<smartform:label>
+								<Label text="{/#C_ObjPgMaintOrder/MaintPriority/@sap:label}"/>
+							</smartform:label>
+							<ComboBox visible="{= ${viewModel>/isMassEdit} &amp;&amp; !${viewModel>isSingleMode} }" id="orderChangeSchedulingPriorityMassEditComboBox"
+								selectionChange="onMassEditComboBoxChanged" selectedKey="{viewModel>selectedKey}" items="{viewModel>massEditValues}"
+								customData:smartFieldId="orderChangeSchedulingPriorityField">
+								<items>
+									<core:Item key="{viewModel>key}" text="{viewModel>value}" customData:semantic="{viewModel>semantic}"/>
+								</items>
+							</ComboBox>
+							<smartfield:SmartField visible="{= !${viewModel>/isMassEdit} || ${viewModel>isSingleMode} }" id="orderChangeSchedulingPriorityField"
+								value="{MaintPriority}">
+								<smartfield:configuration>
+									<smartfield:Configuration preventInitialDataFetchInValueHelpDialog="false" />
+								</smartfield:configuration>
+							</smartfield:SmartField>
+						</smartform:GroupElement>
+						<smartform:GroupElement objectBindings="{viewModel>/MaintenanceRevision}">
+							<smartform:label>
+								<Label text="{/#C_ObjPgMaintOrder/MaintenanceRevision/@sap:label}"/>
+							</smartform:label>
+							<ComboBox visible="{= ${viewModel>/isMassEdit} &amp;&amp; !${viewModel>isSingleMode} }"
+								id="orderChangeSchedulingMaintenanceRevisionMassEditComboBox" selectionChange="onMassEditComboBoxChanged"
+								selectedKey="{viewModel>selectedKey}" items="{viewModel>massEditValues}"
+								customData:smartFieldId="orderChangeSchedulingMaintenanceRevisionField">
+								<items>
+									<core:Item key="{viewModel>key}" text="{viewModel>value}" customData:semantic="{viewModel>semantic}"/>
+								</items>
+							</ComboBox>
+							<smartfield:SmartField visible="{= !${viewModel>/isMassEdit} || ${viewModel>isSingleMode} }"
+								id="orderChangeSchedulingMaintenanceRevisionField" value="{MaintenanceRevision}"/>
+						</smartform:GroupElement>
+						<smartform:GroupElement objectBindings="{viewModel>/MaintOrdBasicStartDate}">
+							<smartform:label>
+								<Label text="{/#C_ObjPgMaintOrder/MaintOrdBasicStartDate/@sap:label}"/>
+							</smartform:label>
+							<ComboBox visible="{= ${viewModel>/isMassEdit} &amp;&amp; !${viewModel>isSingleMode} }"
+								id="orderChangeSchedulingMaintOrdBasicStartDateMassEditComboBox" selectionChange="onMassEditComboBoxChanged"
+								selectedKey="{viewModel>selectedKey}" items="{viewModel>massEditValues}" fieldGroupIds="orderChangeScheduling"
+								customData:smartFieldId="orderChangeSchedulingMaintOrdBasicStartDateField">
+								<items>
+									<core:Item key="{viewModel>key}" text="{viewModel>value}" customData:semantic="{viewModel>semantic}"/>
+								</items>
+							</ComboBox>
+							<smartfield:SmartField visible="{= !${viewModel>/isMassEdit} || ${viewModel>isSingleMode} }"
+								id="orderChangeSchedulingMaintOrdBasicStartDateField" value="{MaintOrdBasicStartDate}" change="onDateSelect"/>
+						</smartform:GroupElement>
+						<smartform:GroupElement objectBindings="{viewModel>/MaintOrdBasicEndDate}">
+							<smartform:label>
+								<Label text="{/#C_ObjPgMaintOrder/MaintOrdBasicEndDate/@sap:label}"/>
+							</smartform:label>
+							<ComboBox visible="{= ${viewModel>/isMassEdit} &amp;&amp; !${viewModel>isSingleMode} }"
+								id="orderChangeSchedulingMaintOrdBasicEndDateMassEditComboBox" selectionChange="onMassEditComboBoxChanged"
+								selectedKey="{viewModel>selectedKey}" items="{viewModel>massEditValues}" fieldGroupIds="orderChangeScheduling"
+								customData:smartFieldId="orderChangeSchedulingMaintOrdBasicEndDateField">
+								<items>
+									<core:Item key="{viewModel>key}" text="{viewModel>value}" customData:semantic="{viewModel>semantic}"/>
+								</items>
+							</ComboBox>
+							<smartfield:SmartField visible="{= !${viewModel>/isMassEdit} || ${viewModel>isSingleMode} }"
+								id="orderChangeSchedulingMaintOrdBasicEndDateField" value="{MaintOrdBasicEndDate}" change="onDateSelect"/>
+						</smartform:GroupElement>
+					</smartform:Group>
+				</smartform:groups>
+			</smartform:SmartForm>
+		</content>
+		<beginButton>
+			<Button text="{i18n>xbut.Save}" press="onOkPressed" type="Emphasized"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>xbut.cancel}" press="onCancelPressed"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

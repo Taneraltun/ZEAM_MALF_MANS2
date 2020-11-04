@@ -1,0 +1,14 @@
+<!--
+
+    Copyright (C) 2009-2019 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Column visible="false">
+		<Text text="{i18n>xtit.description}"/>
+		<customData>
+			<core:CustomData key="p13nData"
+				value='\{"columnKey": "LongText", "leadingProperty":"OrderHasLongText", "type":"text", "columnIndex": "9999" }'/>
+		</customData>
+	</Column>
+</core:FragmentDefinition>

@@ -1,0 +1,99 @@
+{
+    "resources": [
+        {
+            "name": "Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "annotations/annotations.xml"
+        },
+        {
+            "name": "changes/changes-bundle.json"
+        },
+        {
+            "name": "di.code-validation.core_issues.json"
+        },
+        {
+            "name": "ext/controller/ListReportExt-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "ext/controller/ListReportExt.controller.js"
+        },
+        {
+            "name": "ext/fragments/ChangeAssignmentDialog.fragment.xml"
+        },
+        {
+            "name": "ext/fragments/ChangeSchedulingDialog.fragment.xml"
+        },
+        {
+            "name": "ext/fragments/DateSelectorDialog.fragment.xml"
+        },
+        {
+            "name": "ext/fragments/ListReportResponsiveTableCells.fragment.xml"
+        },
+        {
+            "name": "ext/fragments/ListReportResponsiveTableColumns.fragment.xml"
+        },
+        {
+            "name": "ext/fragments/LongTextDialog.fragment.xml"
+        },
+        {
+            "name": "ext/fragments/SelectionDialog.fragment.xml"
+        },
+        {
+            "name": "i18n/ListReport/C_ObjPgMaintOrder/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/i18n_tr.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_tr"
+        },
+        {
+            "name": "manifest-bundle.zip"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "sap-ui-cachebuster-info.json"
+        },
+        {
+            "name": "util/CustomMultiEditHandler-dbg-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "util/CustomMultiEditHandler-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "util/CustomMultiEditHandler.js"
+        },
+        {
+            "name": "util/MultiEditHandler-dbg-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "util/MultiEditHandler-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "util/MultiEditHandler.js"
+        }
+    ]
+}
